@@ -1,6 +1,7 @@
 # Where the work stands (snapshot; rewrite, do not append)
 
-**2026-11-12: repository initialised.** No code, no runs.
+**2026-11-12: form 1 implemented, not run.** X = skew(msign(F⁻¹M)) inside Natural Pion (ADR 0002,
+`spectral_pion/`), 197 tests pass; `scripts/runs/snp.sbatch` rows 0-4 (control + 3000-step grid) await the go-ahead.
 
 ## The idea
 
@@ -34,7 +35,6 @@ were read by hand from the logs on 2026-11-12; any use in a report goes through 
 ## Open decisions (the user's)
 
 - Baseline(s): Natural Pion as published; published Pion; pion_msign? Muon for reference?
-- The method's exact form (see above).
-- Code: copy Natural-Pion's `ngd_pion/`, `harness/`, `tests/` at commit afcc459 as the starting point (proposed).
+- The method's exact form: form 1 chosen (ADR 0002); its implementation choices (Muon's msign, RMS rule) are open.
 - Run output directory `$DATA_p330/runs-snp/` (proposed).
 - Goal: a paper built on a positive empirical result, as for Natural Pion (assumed; confirm).

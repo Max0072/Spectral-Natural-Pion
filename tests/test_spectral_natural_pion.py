@@ -106,3 +106,27 @@ def test_the_harness_builds_it():
     assert isinstance(rot, SpectralNaturalPion) and rot.msign
     assert cfg.hash != RunConfig(optimizer="natural-pion-fast", model=SMALL, lr=3e-4).hash
     rec.remove()
+
+
+def test_whitened_form_without_msign_is_the_natural_gradient(monkeypatch):
+    """Form 2 with msign replaced by the identity is F^-1 M: the whitening and its inverse compose to F^-1, which checks
+    the coordinates of the docstring. fp32 F^-1, so the two paths do the same products."""
+    import spectral_pion.spectral_natural_pion as snp
+    monkeypatch.setattr(snp, "msign_batched", lambda x: x)
+    a, b = _weights(71), _weights(71)
+    ref = NaturalPionFast(a, lr=3e-4, t_fac=5, stats_window=3, fisher_dtype="fp32")
+    opt = SpectralNaturalPion(b, lr=3e-4, t_fac=5, stats_window=3, fisher_dtype="fp32", form="whitened")
+    for x, y in zip(_drive(ref, a, 12, 72, COS)[-1], _drive(opt, b, 12, 72, COS)[-1]):
+        assert torch.allclose(x, y, rtol=1e-4, atol=1e-5), (x - y).abs().max()
+
+
+def test_whitened_form_keeps_the_spectrum_and_differs_from_form_1():
+    a, b, c = _weights(73), _weights(73), _weights(73)
+    s0 = [torch.linalg.svdvals(p.detach().double()) for p in a]
+    f2 = SpectralNaturalPion(a, lr=3e-4, t_fac=5, stats_window=3, form="whitened")
+    f1 = SpectralNaturalPion(b, lr=3e-4, t_fac=5, stats_window=3)
+    w2, w1 = _drive(f2, a, 12, 74, COS)[-1], _drive(f1, b, 12, 74, COS)[-1]
+    for p, s in zip(a, s0):
+        assert torch.allclose(torch.linalg.svdvals(p.detach().double()), s, rtol=1e-4)
+    assert max((x - y).abs().max().item() for x, y in zip(w1, w2)) > 1e-4
+    assert max((x - w.detach()).abs().max().item() for x, w in zip(w2, c)) > 1e-4

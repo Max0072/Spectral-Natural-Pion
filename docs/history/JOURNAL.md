@@ -32,3 +32,11 @@ Submitted (user): SNP at 15k and 30k, grid {1.5e-4, 3e-4, 6e-4} (rows 7-12, jobs
 the 30k choice. Muon at 15k and 30k with the full-length run's command (Natural-Muon journal 2026-11-03), only
 --train-steps and --eval-every changed, code of Natural-Muon unchanged: jobs 413955 (15k), 413956 (30k), outputs in
 $DATA_p330/runs-muon. Natural Pion's runs at these lengths: Natural-Pion runs-record/npv2/k-m15k-*, k-m30k-*.
+
+2026-11-13 00:10. User: is F^-1 worth its cost on top of msign? At 3000 steps SNP saves ~7% of steps over pion_msign
+(0.011 at a local slope of 0.16 per e-fold of steps) and costs ~8-10% more time per step: a wash. Submitted
+(user): pion_msign at 15k and 30k, lr {1e-2, 2e-2}, configuration of k-pmsign-2e-2 except steps and eval cadence
+(rows 13-16, jobs 413968, 413969). Step-time comparisons across separate runs disagree (Pion 0.524 vs Natural Pion 0.497
+s/step from runs on different days); a same-job timing is needed before any cost claim.
+Form 2 (user: F^-1/2 msign(F^-1/2 G)), ADR 0003, implemented and tested (199 passed); rows 17-19 at 3000 steps written,
+not submitted.

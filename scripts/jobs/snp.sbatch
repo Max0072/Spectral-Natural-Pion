@@ -22,10 +22,19 @@ ROWS=(
 "snp1-3k-2.4e-3|$SNP|3000|2.4e-3|0"
 "snp1-3k-1.5e-4|$SNP|3000|1.5e-4|0"
 "snp1-3k-7.5e-5|$SNP|3000|7.5e-5|0"
+"snp1-15k-1.5e-4|$SNP|15000|1.5e-4|0"
+"snp1-15k-3e-4|$SNP|15000|3e-4|0"
+"snp1-15k-6e-4|$SNP|15000|6e-4|0"
+"snp1-30k-1.5e-4|$SNP|30000|1.5e-4|0"
+"snp1-30k-3e-4|$SNP|30000|3e-4|0"
+"snp1-30k-6e-4|$SNP|30000|6e-4|0"
 )
 # row 0 (2026-11-12): control, Natural Pion from this repository's copy; must reproduce k-m3k-6e-4 (3.6878)
 # rows 1-4 (2026-11-12): form 1, X = msign(F^-1 M) (ADR 0002), grid of factors of two as Natural Pion's at 3000 steps
-# rows 5-6 (2026-11-12): the grid extended down (best finished point 3e-4 at its lower edge)
+# rows 5-6 (2026-11-12): the grid extended down; cancelled before start, once 6e-4 finished best (3.6669)
+# rows 7-12 (2026-11-12): form 1 at 15 000 and 30 000 steps, grid {1.5e-4, 3e-4, 6e-4} (Natural Pion's optimum
+# there was 3e-4); 45 000 and full length take the 30 000-step choice, as for Natural Pion. Submit with -t 03:00:00
+# (15k) and -t 06:00:00 (30k).
 IFS='|' read -r TAG OPT STEPS LR SEED <<< "${ROWS[$SLURM_ARRAY_TASK_ID]}"
 EV=500; [ "$STEPS" -gt 3000 ] && EV=1000; [ "$STEPS" -gt 15000 ] && EV=2000
 OUT="$DATA_p330/runs-snp/$TAG"; mkdir -p "$OUT"

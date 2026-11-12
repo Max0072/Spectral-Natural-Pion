@@ -21,3 +21,14 @@ pion_msign grid completed (4e-2 3.7559, 8e-2 3.8710): best 2e-2 3.6780 inside th
 scripts/jobs/snp.sbatch: row 0 control (Natural Pion from this copy, 6e-4; must reproduce k-m3k-6e-4 3.6878), rows
 1-4 form 1 at 3e-4..2.4e-3. Configurations diffed against k-m3k-6e-4 before submission: only optimizer, out_dir,
 defaults_version differ. Not submitted: waiting for the user's go-ahead.
+
+2026-11-12 23:40. Form 1 at 3000 steps, seed 0 (val): control Natural Pion from this copy 3.6878272533 = k-m3k-6e-4
+exactly. SNP 3e-4 3.6995, 6e-4 3.6669, 1.2e-3 (see below); 2.4e-3, 1.5e-4, 7.5e-5 cancelled before start (the user
+first asked for a smaller step on the incomplete grid; once 6e-4 finished best, interior, they were dropped).
+SNP 6e-4 is 0.021 below Natural Pion and 0.011 below pion_msign; Muon (3k, lr 1e-3, AdamW 8e-3,
+runs-muon/muon-lr0.001-s0-0fbb2f2ae7) 3.6505, so SNP closes 0.021 of Natural Pion's 0.037 gap to Muon. One seed, scale
+chosen on it. SNP was ahead of Natural Pion at every evaluation up to 2000 steps at both 3e-4 and 6e-4.
+Submitted (user): SNP at 15k and 30k, grid {1.5e-4, 3e-4, 6e-4} (rows 7-12, jobs 413949, 413950); 45k and full take
+the 30k choice. Muon at 15k and 30k with the full-length run's command (Natural-Muon journal 2026-11-03), only
+--train-steps and --eval-every changed, code of Natural-Muon unchanged: jobs 413955 (15k), 413956 (30k), outputs in
+$DATA_p330/runs-muon. Natural Pion's runs at these lengths: Natural-Pion runs-record/npv2/k-m15k-*, k-m30k-*.

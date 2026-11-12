@@ -23,7 +23,7 @@ scripts/jobs/snp.sbatch: row 0 control (Natural Pion from this copy, 6e-4; must 
 defaults_version differ. Not submitted: waiting for the user's go-ahead.
 
 2026-11-12 23:40. Form 1 at 3000 steps, seed 0 (val): control Natural Pion from this copy 3.6878272533 = k-m3k-6e-4
-exactly. SNP 3e-4 3.6995, 6e-4 3.6669, 1.2e-3 (see below); 2.4e-3, 1.5e-4, 7.5e-5 cancelled before start (the user
+exactly. SNP 3e-4 3.6995, 6e-4 3.6669, 1.2e-3 3.7105; 2.4e-3, 1.5e-4, 7.5e-5 cancelled before start (the user
 first asked for a smaller step on the incomplete grid; once 6e-4 finished best, interior, they were dropped).
 SNP 6e-4 is 0.021 below Natural Pion and 0.011 below pion_msign; Muon (3k, lr 1e-3, AdamW 8e-3,
 runs-muon/muon-lr0.001-s0-0fbb2f2ae7) 3.6505, so SNP closes 0.021 of Natural Pion's 0.037 gap to Muon. One seed, scale

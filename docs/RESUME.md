@@ -1,7 +1,7 @@
 # Where the work stands (snapshot; rewrite, do not append)
 
 **2026-11-12: form 1 implemented, not run.** X = skew(msign(F⁻¹M)) inside Natural Pion (ADR 0002,
-`spectral_pion/`), 197 tests pass; `scripts/runs/snp.sbatch` rows 0-4 (control + 3000-step grid) await the go-ahead.
+`spectral_pion/`), 197 tests pass; `scripts/jobs/snp.sbatch` rows 0-4 (control + 3000-step grid) await the go-ahead.
 
 ## The idea
 

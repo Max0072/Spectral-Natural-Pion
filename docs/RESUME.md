@@ -1,7 +1,9 @@
 # Where the work stands (snapshot; rewrite, do not append)
 
-**2026-11-12: form 1 implemented, not run.** X = skew(msign(F⁻¹M)) inside Natural Pion (ADR 0002,
-`spectral_pion/`), 197 tests pass; `scripts/jobs/snp.sbatch` rows 0-4 (control + 3000-step grid) await the go-ahead.
+**2026-11-13: form 1 (msign(F⁻¹M), RMS rule) is the best spectrum-preserving method at 3k, 15k and 30k steps**
+(seed 0): 3.6669 / 3.4399 / 3.3735, against Natural Pion 3.6878 / 3.4465 / 3.3802 and pion_msign 3.6780 / 3.4503 /
+3.3842 (30k at its grid edge); Muon 3.6505 / 3.4136 / 3.3540. Full table: journal 2026-11-13 14:30. Running: form 1
+with a fixed length at 15k and 30k (rows 24-29).
 
 ## The idea
 

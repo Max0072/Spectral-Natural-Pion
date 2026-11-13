@@ -40,3 +40,17 @@ $DATA_p330/runs-muon. Natural Pion's runs at these lengths: Natural-Pion runs-re
 s/step from runs on different days); a same-job timing is needed before any cost claim.
 Form 2 (user: F^-1/2 msign(F^-1/2 G)), ADR 0003, implemented and tested (199 passed); rows 17-19 at 3000 steps written,
 not submitted.
+
+2026-11-13 14:30. Results, seed 0, val (best of each grid; scale):
+            3000              15000             30000
+Muon        3.6505 (1e-3)     3.4136            3.3540            (untuned, one point)
+SNP f1 RMS  3.6669 (6e-4)     3.4399 (3e-4)     3.3735 (3e-4)     (all interior)
+SNP f1 fix  3.6690 (2e-2)     running           running           (3k interior: 1e-2 3.6905, 4e-2 3.7214, 5e-3 3.7792)
+SNP f2 RMS  3.6737 (6e-4)     -                 -                 (3e-4 3.7104, 1.2e-3 3.7087)
+NatPion     3.6878 (6e-4)     3.4465 (3e-4)     3.3802 (3e-4)     (Natural-Pion records)
+pion_msign  3.6780 (2e-2)     3.4503 (2e-2)     3.3842 (1e-2, EDGE of {1e-2, 2e-2})
+Pion        3.8412            3.5254            3.4460            (Natural-Pion records)
+SNP form 1 (RMS) minus Natural Pion: -0.021, -0.007, -0.007; minus pion_msign: -0.011, -0.010, -0.011; minus Muon:
++0.016, +0.026, +0.019. pion_msign is behind Natural Pion at 15k and 30k (ahead at 3k), but its 30k best is at the
+grid edge. Form 2 and the fixed length rule do not beat form 1 with RMS at 3k. Mid-schedule losses at 30k were level
+with Natural Pion; the gap opens in the decay, as at 15k. Open: pion_msign 30k at 5e-3; SNP seeds.

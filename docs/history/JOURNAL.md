@@ -54,3 +54,9 @@ SNP form 1 (RMS) minus Natural Pion: -0.021, -0.007, -0.007; minus pion_msign: -
 +0.016, +0.026, +0.019. pion_msign is behind Natural Pion at 15k and 30k (ahead at 3k), but its 30k best is at the
 grid edge. Form 2 and the fixed length rule do not beat form 1 with RMS at 3k. Mid-schedule losses at 30k were level
 with Natural Pion; the gap opens in the decay, as at 15k. Open: pion_msign 30k at 5e-3; SNP seeds.
+
+2026-11-14 00:30. All submitted runs finished. Form 1 (RMS) at 15k, 3e-4, seeds 0-3: 3.4399, 3.4367, 3.4368, 3.4369
+(mean 3.4376, range 0.003) against Natural Pion's 3.4465, 3.4481, 3.4483, 3.4483 (mean 3.4478): better on every seed,
+by 0.010 in the mean. Form 1 with a fixed length (c = theta): 15k 1e-2 3.4373 (5e-3 3.4730, 2e-2 3.4563), 30k 1e-2
+3.3723 (5e-3 3.3944, 2e-2 3.4008), both interior and equal to the RMS rule (3.4376 mean, 3.3735): the length rule does
+not matter for form 1. pion_msign 30k at 5e-3: 3.4157, so its optimum 1e-2 (3.3842) is interior.

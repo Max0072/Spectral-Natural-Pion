@@ -38,10 +38,17 @@ ROWS=(
 "snp2-3k-3e-4|snp2|3000|3e-4|0"
 "snp2-3k-6e-4|snp2|3000|6e-4|0"
 "snp2-3k-1.2e-3|snp2|3000|1.2e-3|0"
+"snp1f-3k-5e-3|snp1f|3000|5e-3|0"
+"snp1f-3k-1e-2|snp1f|3000|1e-2|0"
+"snp1f-3k-2e-2|snp1f|3000|2e-2|0"
+"snp1f-3k-4e-2|snp1f|3000|4e-2|0"
 )
 # row 0 (2026-11-12): control, Natural Pion from this repository's copy; must reproduce k-m3k-6e-4 (3.6878)
 # rows 1-4 (2026-11-12): form 1, X = msign(F^-1 M) (ADR 0002), grid of factors of two as Natural Pion's at 3000 steps
 # rows 5-6 (2026-11-12): the grid extended down; cancelled before start, once 6e-4 finished best (3.6669)
+# rows 20-23 (2026-11-13): form 1 with pion_msign's length rule, c = theta (length "fixed"; every plane turns by about
+# theta), 3000 steps, theta {5e-3, 1e-2, 2e-2, 4e-2} around pion_msign's 2e-2 (it rotates one side per step, these
+# both). Per-matrix path: step times not comparable.
 # rows 17-19 (2026-11-12): form 2, X = F^-1/2 msign(F^-1/2 M) (ADR 0003), 3000 steps, the grid of form 1
 # rows 13-16 (2026-11-12): pion_msign at 15k and 30k, lr {1e-2, 2e-2} (its 3000-step best 2e-2); submit -t 03:00:00
 # (15k), -t 06:00:00 (30k)
@@ -51,6 +58,7 @@ ROWS=(
 IFS='|' read -r TAG OPT STEPS LR SEED EXTRA <<< "${ROWS[$SLURM_ARRAY_TASK_ID]}"
 KW='{"length":"rms","tf32":"upstream","fisher_dtype":"bf16"}'
 [ "$OPT" = snp2 ] && { OPT=$SNP; KW='{"length":"rms","tf32":"upstream","fisher_dtype":"bf16","form":"whitened"}'; }   # form 2
+[ "$OPT" = snp1f ] && { OPT=$SNP; KW='{"length":"fixed","tf32":"upstream","fisher_dtype":"bf16"}'; }   # form 1, c = theta
 NPFLAGS=()
 case "$OPT" in $NP|$SNP) NPFLAGS=(--np-kwargs "$KW" --ngd-eps 1e-3 --lr-min-ratio 0.01) ;; esac
 EV=500; [ "$STEPS" -gt 3000 ] && EV=1000; [ "$STEPS" -gt 15000 ] && EV=2000

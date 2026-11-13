@@ -130,3 +130,16 @@ def test_whitened_form_keeps_the_spectrum_and_differs_from_form_1():
         assert torch.allclose(torch.linalg.svdvals(p.detach().double()), s, rtol=1e-4)
     assert max((x - y).abs().max().item() for x, y in zip(w1, w2)) > 1e-4
     assert max((x - w.detach()).abs().max().item() for x, w in zip(w2, c)) > 1e-4
+
+
+def test_form_1_with_a_fixed_length_turns_every_matrix_by_about_theta():
+    """length="fixed" (c = theta) after msign: every plane turns by about theta (msign's singular values ~1), as in
+    pion_msign; the spectrum is kept."""
+    params = _weights(75)
+    s0 = [torch.linalg.svdvals(p.detach().double()) for p in params]
+    opt = SpectralNaturalPion(params, lr=1e-2, t_fac=5, stats_window=3, length="fixed")
+    _drive(opt, params, 8, 76, lambda t: 1e-2)
+    for p, s in zip(params, s0):
+        assert torch.allclose(torch.linalg.svdvals(p.detach().double()), s, rtol=1e-4)
+    angles = list(opt.angles.values())
+    assert all(0.5e-2 < a < 1.3e-2 for a in angles), angles

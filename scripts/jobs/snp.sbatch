@@ -42,10 +42,17 @@ ROWS=(
 "snp1f-3k-1e-2|snp1f|3000|1e-2|0"
 "snp1f-3k-2e-2|snp1f|3000|2e-2|0"
 "snp1f-3k-4e-2|snp1f|3000|4e-2|0"
+"snp1f-15k-5e-3|snp1f|15000|5e-3|0"
+"snp1f-15k-1e-2|snp1f|15000|1e-2|0"
+"snp1f-15k-2e-2|snp1f|15000|2e-2|0"
+"snp1f-30k-5e-3|snp1f|30000|5e-3|0"
+"snp1f-30k-1e-2|snp1f|30000|1e-2|0"
+"snp1f-30k-2e-2|snp1f|30000|2e-2|0"
 )
 # row 0 (2026-11-12): control, Natural Pion from this repository's copy; must reproduce k-m3k-6e-4 (3.6878)
 # rows 1-4 (2026-11-12): form 1, X = msign(F^-1 M) (ADR 0002), grid of factors of two as Natural Pion's at 3000 steps
 # rows 5-6 (2026-11-12): the grid extended down; cancelled before start, once 6e-4 finished best (3.6669)
+# rows 24-29 (2026-11-13): the same at 15k (24-26) and 30k (27-29), theta {5e-3, 1e-2, 2e-2}; -t 04:00:00 / 08:00:00
 # rows 20-23 (2026-11-13): form 1 with pion_msign's length rule, c = theta (length "fixed"; every plane turns by about
 # theta), 3000 steps, theta {5e-3, 1e-2, 2e-2, 4e-2} around pion_msign's 2e-2 (it rotates one side per step, these
 # both). Per-matrix path: step times not comparable.

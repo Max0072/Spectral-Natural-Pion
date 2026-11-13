@@ -52,10 +52,14 @@ ROWS=(
 "snp1-15k-3e-4-s1|$SNP|15000|3e-4|1"
 "snp1-15k-3e-4-s2|$SNP|15000|3e-4|2"
 "snp1-15k-3e-4-s3|$SNP|15000|3e-4|3"
+"snp1-full-3e-4|$SNP|73242|3e-4|0"
+"pmsign-full-1e-2|pion|73242|1e-2|0|$PMSIGN"
 )
 # row 0 (2026-11-12): control, Natural Pion from this repository's copy; must reproduce k-m3k-6e-4 (3.6878)
 # rows 1-4 (2026-11-12): form 1, X = msign(F^-1 M) (ADR 0002), grid of factors of two as Natural Pion's at 3000 steps
 # rows 5-6 (2026-11-12): the grid extended down; cancelled before start, once 6e-4 finished best (3.6669)
+# rows 34-35 (2026-11-14): full length, the 30k choices: form 1 (RMS) 3e-4 (as Natural Pion d1pc-73242), pion_msign
+# 1e-2; -t 14:00:00
 # row 30 (2026-11-13): pion_msign at 30k, lr 5e-3 (its best, 1e-2, was at the grid edge); -t 06:00:00
 # rows 31-33 (2026-11-13): form 1 (RMS) at 15k, 3e-4, seeds 1-3; -t 03:00:00
 # rows 24-29 (2026-11-13): the same at 15k (24-26) and 30k (27-29), theta {5e-3, 1e-2, 2e-2}; -t 04:00:00 / 08:00:00

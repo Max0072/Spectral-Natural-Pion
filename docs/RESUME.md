@@ -1,9 +1,9 @@
 # Where the work stands (snapshot; rewrite, do not append)
 
-**2026-11-13: form 1 (msign(F⁻¹M), RMS rule) is the best spectrum-preserving method at 3k, 15k and 30k steps**
-(seed 0): 3.6669 / 3.4399 / 3.3735, against Natural Pion 3.6878 / 3.4465 / 3.3802 and pion_msign 3.6780 / 3.4503 /
-3.3842 (30k at its grid edge); Muon 3.6505 / 3.4136 / 3.3540. Full table: journal 2026-11-13 14:30. Running: form 1
-with a fixed length at 15k and 30k (rows 24-29).
+**2026-11-14: form 1 (msign(F⁻¹M), RMS rule) is the best spectrum-preserving method at 3k, 15k, 30k and full length**
+(seed 0; 15k also seeds 1-3): 3.6669 / 3.4376 (mean) / 3.3735 / 3.3165, against Natural Pion 3.6878 / 3.4478 / 3.3802 /
+3.3209 and pion_msign 3.6780 / 3.4503 / 3.3842 / 3.3246; Muon 3.6505 / 3.4136 / 3.3540 / 3.2976. Gain over Natural
+Pion ~7-10% of steps. Length rule irrelevant (fixed = RMS); form 2 worse at 3k. Nothing running. Journal 2026-11-14.
 
 ## The idea
 

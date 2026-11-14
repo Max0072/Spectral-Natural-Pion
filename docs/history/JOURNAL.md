@@ -60,3 +60,14 @@ with Natural Pion; the gap opens in the decay, as at 15k. Open: pion_msign 30k a
 by 0.010 in the mean. Form 1 with a fixed length (c = theta): 15k 1e-2 3.4373 (5e-3 3.4730, 2e-2 3.4563), 30k 1e-2
 3.3723 (5e-3 3.3944, 2e-2 3.4008), both interior and equal to the RMS rule (3.4376 mean, 3.3735): the length rule does
 not matter for form 1. pion_msign 30k at 5e-3: 3.4157, so its optimum 1e-2 (3.3842) is interior.
+
+2026-11-14 15:30. Full length (73 242 steps, seed 0): SNP form 1 (RMS, 3e-4) 3.3165; Natural Pion 3.3209; pion_msign
+(1e-2) 3.3246; Muon 3.2976; Pion 3.3706. SNP minus Natural Pion by length: -0.021 (3k), -0.010 (15k, 4-seed means),
+-0.007 (30k), -0.004 (full); in steps at Natural Pion's local slope ~10%, ~7%, ~8% (roughly constant while the loss gap
+shrinks). SNP minus pion_msign: -0.011, -0.013, -0.011, -0.008. pion_msign is behind Natural Pion at 15k, 30k and
+full. User asked whether a schedule was wrong when the runs were level mid-schedule: the logged rotation lr of SNP
+and Natural Pion is identical at all 2419 logged steps, and the gap SNP - NP by share of the schedule matches 30k
+(+0.015 at ~12%, crossing at ~70%, opening in the decay). Hypothesis, unchecked: msign raises faint (noisy) planes to
+the full angle, which costs at large steps and helps at small ones.
+Reading (proposed to the user): a robust but small gain (~8% of steps) over Natural Pion; better as a section of
+Natural Pion's v2 than a separate paper, after seeds at full length and a same-job timing.
